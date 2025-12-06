@@ -44,7 +44,3 @@ public class Ingredient {
 
 }
 
-/*  * ingredientName (String)
- * ingredientAmount (float)
- * unitMeasurment (String)
- * number of Calories (double) */
