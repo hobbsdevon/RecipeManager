@@ -24,21 +24,13 @@ public class Ingredient {
     }
 
     //Getter methods
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public float getAmount() {
-        return amount;
-    }
+    public float getAmount() { return amount; }
 
-    public String getUnit() {
-        return unit;
-    }
+    public String getUnit() { return unit; }
 
-    public float getTotalCalories() {
-        return totalCalories;
-    }
+    public float getTotalCalories() { return totalCalories; }
     /* 
     addIngredient takes user input for name, amount, unit measurement, and calories,
     and returns an Ingredient object with those attributes.

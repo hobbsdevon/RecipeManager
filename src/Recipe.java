@@ -23,37 +23,21 @@ public class Recipe {
         this.totalCalories = totalCalories;
     }
 
-    public String getRecipeName() {
-        return recipeName;
-    }
+    public String getRecipeName() { return recipeName; }
 
-    public void setRecipeName(String recipeName) {
-        this.recipeName = recipeName;
-    }
+    public void setRecipeName(String recipeName) { this.recipeName = recipeName; }
 
-    public int getServings() {
-        return servings;
-    }
+    public int getServings() { return servings; }
 
-    public void setServings(int servings) {
-        this.servings = servings;
-    }
+    public void setServings(int servings) { this.servings = servings; }
 
-    public ArrayList<Ingredient> getIngredients() {
-        return ingredients;
-    }
+    public ArrayList<Ingredient> getIngredients() { return ingredients; }
 
-    public void setIngredients(ArrayList<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
+    public void setIngredients(ArrayList<Ingredient> ingredients) { this.ingredients = ingredients; }
 
-    public double getTotalCalories() {
-        return totalCalories;
-    }
+    public double getTotalCalories() { return totalCalories; }
 
-    public void setTotalCalories(double totalCalories) {
-        this.totalCalories = totalCalories;
-    }
+    public void setTotalCalories(double totalCalories) { this.totalCalories = totalCalories; }
 
     public void printRecipe() {
         System.out.println("Recipe Name: " + recipeName);
@@ -66,7 +50,6 @@ public class Recipe {
     }
 
     public Recipe addRecipe(Scanner scnr) {
-        //Recipe recipe = new Recipe();
         System.out.print("Enter recipe name: ");
         String recipeName = scnr.nextLine();
         System.out.print("Enter number of servings: ");
