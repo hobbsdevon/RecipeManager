@@ -9,6 +9,20 @@ public class Ingredient {
     private String unit;
     private float totalCalories;
 
+    public Ingredient() {
+        this.name = "";
+        this.amount = 0.0f;
+        this.unit = "";
+        this.totalCalories = 0.0f;
+    }
+
+    public Ingredient(String name, float amount, String unit, float totalCalories) {
+        this.name = name;
+        this.amount = amount;
+        this.unit = unit;
+        this.totalCalories = totalCalories;
+    }
+
     //Getter methods
     public String getName() {
         return name;
@@ -29,10 +43,9 @@ public class Ingredient {
     addIngredient takes user input for name, amount, unit measurement, and calories,
     and returns an Ingredient object with those attributes.
     */
-    public static Ingredient addIngredient() {
-        Scanner scnr = new Scanner(System.in);
+    public static Ingredient addIngredient(Scanner scnr) {
 
-        Ingredient ingredient = new Ingredient();
+        //Ingredient ingredient = new Ingredient();
 
         String nameOfIngredient = "";
         float ingredientAmount = 0.0f;
@@ -40,7 +53,7 @@ public class Ingredient {
         float numberCaloriesPerUnit = 0;
         float totalCalories = 0.0f;
 
-        System.out.println("Let's add an ingredient. Please enter the ingredient name: ");
+        System.out.println("Please enter the ingredient name: ");
         if (scnr.hasNextLine()) {
             nameOfIngredient = scnr.nextLine();
         }
@@ -63,16 +76,15 @@ public class Ingredient {
         totalCalories = ingredientAmount * numberCaloriesPerUnit;
 
         // Set the fields on the ingredient object
-        ingredient.name = nameOfIngredient;
+        /* ingredient.name = nameOfIngredient;
         ingredient.amount = ingredientAmount;
         ingredient.unit = unitMeasurement;
-        ingredient.totalCalories = totalCalories;
+        ingredient.totalCalories = totalCalories; */
 
         System.out.println(nameOfIngredient + " uses " + ingredientAmount + " " 
                 + unitMeasurement + " and has " + totalCalories + " calories.");
 
-        scnr.close();
-        return ingredient;
+        return new Ingredient(nameOfIngredient, ingredientAmount, unitMeasurement, totalCalories);
     }
 
 }
