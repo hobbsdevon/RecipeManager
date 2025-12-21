@@ -55,14 +55,18 @@ public class Recipe {
         System.out.print("Enter number of servings: ");
         int servings = scnr.nextInt();
         scnr.nextLine(); // consume newline character
+
         ArrayList<Ingredient> ingredients = new ArrayList<>();
+
         while (true) {
             System.out.print("Enter ingredient name: ");
             Ingredient ingredient = Ingredient.addIngredient(scnr);
             ingredients.add(ingredient);
+
             System.out.println("Would you like to add another ingredient? (y/n): ");
             char choice = scnr.next().charAt(0);
             scnr.nextLine(); // consume newline character
+            
             if (choice == 'n') {
                 break;
             }

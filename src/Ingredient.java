@@ -37,8 +37,6 @@ public class Ingredient {
     */
     public static Ingredient addIngredient(Scanner scnr) {
 
-        //Ingredient ingredient = new Ingredient();
-
         String nameOfIngredient = "";
         float ingredientAmount = 0.0f;
         String unitMeasurement = "";
@@ -66,12 +64,6 @@ public class Ingredient {
         }
 
         totalCalories = ingredientAmount * numberCaloriesPerUnit;
-
-        // Set the fields on the ingredient object
-        /* ingredient.name = nameOfIngredient;
-        ingredient.amount = ingredientAmount;
-        ingredient.unit = unitMeasurement;
-        ingredient.totalCalories = totalCalories; */
 
         System.out.println(nameOfIngredient + " uses " + ingredientAmount + " " 
                 + unitMeasurement + " and has " + totalCalories + " calories.");

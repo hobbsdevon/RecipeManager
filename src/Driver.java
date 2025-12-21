@@ -10,14 +10,7 @@ public class Driver {
 
         Recipe recipe = new Recipe();
         recipe.addRecipe(scnr);
-
-        /* // Print the ingredient's attributes
-        System.out.println("\nIngredient Details:");
-        System.out.println("Name: " + ingredient1.getName());
-        System.out.println("Amount: " + ingredient1.getAmount());
-        System.out.println("Unit: " + ingredient1.getUnit());
-        System.out.println("Total Calories: " + ingredient1.getTotalCalories()); */
-
+        
         scnr.close();
     }
 }
