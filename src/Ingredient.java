@@ -7,7 +7,7 @@ public class Ingredient {
     private String name;
     private float amount;
     private String unit;
-    private float totalCalories;
+    private double totalCalories;
 
     public Ingredient() {
         this.name = "";
@@ -26,49 +26,58 @@ public class Ingredient {
     //Getter methods
     public String getName() { return name; }
 
+    public void setName(String name) { this.name = name; }
+
     public float getAmount() { return amount; }
+
+    public void setAmount(float amount) { this.amount = amount; }
 
     public String getUnit() { return unit; }
 
-    public float getTotalCalories() { return totalCalories; }
+    public void setUnit(String unit) { this.unit = unit; }
+
+    public double getTotalCalories() { return totalCalories; }
+
+    public void setTotalCalories(double totalCalories) { this.totalCalories = totalCalories; }
+    
     /* 
     addIngredient takes user input for name, amount, unit measurement, and calories,
     and returns an Ingredient object with those attributes.
     */
     public static Ingredient addIngredient(Scanner scnr) {
 
-        String nameOfIngredient = "";
-        float ingredientAmount = 0.0f;
-        String unitMeasurement = "";
-        float numberCaloriesPerUnit = 0;
+        String name = "";
+        float amount = 0.0f;
+        String unit = "";
+        float caloriesPerUnit = 0;
         float totalCalories = 0.0f;
 
         System.out.println("Please enter the ingredient name: ");
         if (scnr.hasNextLine()) {
-            nameOfIngredient = scnr.nextLine();
+            name = scnr.nextLine();
         }
 
-        System.out.println("Please enter the unit of measurement for " + nameOfIngredient + ": ");
+        System.out.println("Please enter the unit of measurement for " + name + ": ");
         if (scnr.hasNextLine()) {
-            unitMeasurement = scnr.nextLine();
+            unit = scnr.nextLine();
         }
 
-        System.out.println("Please enter the number of " + unitMeasurement + " of " + nameOfIngredient + " we'll need: ");
+        System.out.println("Please enter the number of " + unit + " of " + name + " we'll need: ");
         if (scnr.hasNextFloat()) {
-            ingredientAmount = scnr.nextFloat();
+            amount = scnr.nextFloat();
         }
 
-        System.out.println("Please enter the calories per " + unitMeasurement + ": ");
+        System.out.println("Please enter the calories per " + unit + ": ");
         if (scnr.hasNextFloat()) {
-            numberCaloriesPerUnit = scnr.nextFloat();
+            caloriesPerUnit = scnr.nextFloat();
         }
 
-        totalCalories = ingredientAmount * numberCaloriesPerUnit;
+        totalCalories = amount * caloriesPerUnit;
 
-        System.out.println(nameOfIngredient + " uses " + ingredientAmount + " " 
-                + unitMeasurement + " and has " + totalCalories + " calories.");
+        System.out.println(name + " uses " + amount + " " 
+                + unit + " and has " + totalCalories + " calories.");
 
-        return new Ingredient(nameOfIngredient, ingredientAmount, unitMeasurement, totalCalories);
+        return new Ingredient(name, amount, unit, totalCalories);
     }
 
 }

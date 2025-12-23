@@ -4,32 +4,32 @@ import java.util.Scanner;
 
 public class Recipe {
     
-    private String recipeName;
-    private int servings;
+    private String name;
+    private short servings;
     private ArrayList<Ingredient> ingredients;
     private double totalCalories;
 
     public Recipe() {
-        this.recipeName = "";
+        this.name = "";
         this.servings = 0;
         this.ingredients = new ArrayList<>();
         this.totalCalories = 0.0;
     }
 
-    public Recipe(String recipeName, int servings, ArrayList<Ingredient> ingredients, double totalCalories) {
-        this.recipeName = recipeName;
+    public Recipe(String name, short servings, ArrayList<Ingredient> ingredients, double totalCalories) {
+        this.name = name;
         this.servings = servings;
         this.ingredients = ingredients;
         this.totalCalories = totalCalories;
     }
 
-    public String getRecipeName() { return recipeName; }
+    public String getName() { return name; }
 
-    public void setRecipeName(String recipeName) { this.recipeName = recipeName; }
+    public void setName(String name) { this.name = name; }
 
-    public int getServings() { return servings; }
+    public short getServings() { return servings; }
 
-    public void setServings(int servings) { this.servings = servings; }
+    public void setServings(short servings) { this.servings = servings; }
 
     public ArrayList<Ingredient> getIngredients() { return ingredients; }
 
@@ -40,7 +40,7 @@ public class Recipe {
     public void setTotalCalories(double totalCalories) { this.totalCalories = totalCalories; }
 
     public void printRecipe() {
-        System.out.println("Recipe Name: " + recipeName);
+        System.out.println("Recipe Name: " + name);
         System.out.println("Servings: " + servings);
         System.out.println("Ingredients:");
         for (Ingredient ingredient : ingredients) {
@@ -51,9 +51,9 @@ public class Recipe {
 
     public Recipe addRecipe(Scanner scnr) {
         System.out.print("Enter recipe name: ");
-        String recipeName = scnr.nextLine();
+        String name = scnr.nextLine();
         System.out.print("Enter number of servings: ");
-        int servings = scnr.nextInt();
+        short servings = scnr.nextShort();
         scnr.nextLine(); // consume newline character
 
         ArrayList<Ingredient> ingredients = new ArrayList<>();
@@ -66,12 +66,12 @@ public class Recipe {
             System.out.println("Would you like to add another ingredient? (y/n): ");
             char choice = scnr.next().charAt(0);
             scnr.nextLine(); // consume newline character
-            
+
             if (choice == 'n') {
                 break;
             }
         }
-        return new Recipe(recipeName, servings, ingredients, 0.0);
+        return new Recipe(name, servings, ingredients, 0.0);
     }
 
 }
