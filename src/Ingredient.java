@@ -56,7 +56,7 @@ public class Ingredient {
         if (scnr.hasNextLine()) {
             name = scnr.nextLine();
         }
-
+        
         System.out.println("Please enter the unit of measurement for " + name + ": ");
         if (scnr.hasNextLine()) {
             unit = scnr.nextLine();
@@ -65,11 +65,27 @@ public class Ingredient {
         System.out.println("Please enter the number of " + unit + " of " + name + " we'll need: ");
         if (scnr.hasNextFloat()) {
             amount = scnr.nextFloat();
+            scnr.nextLine(); // consume newline character
+            while (amount <= 0){ //Re-prompt user until valid input
+                System.out.println("Invalid input. Please try again. Number must be greater than 0.");
+                if (scnr.hasNextFloat()) {
+                    amount = scnr.nextFloat();
+                    scnr.nextLine(); // consume newline character
+                }
+            }    
         }
 
         System.out.println("Please enter the calories per " + unit + ": ");
         if (scnr.hasNextFloat()) {
             caloriesPerUnit = scnr.nextFloat();
+            scnr.nextLine(); // consume newline character
+            while (caloriesPerUnit < 0){ //Re-prompt user until valid input
+                System.out.println("Invalid input. Please try again. Number must be non-negative");
+                if (scnr.hasNextFloat()) {
+                    caloriesPerUnit = scnr.nextFloat();
+                    scnr.nextLine(); // consume newline character
+                }
+            }  
         }
 
         totalCalories = amount * caloriesPerUnit;
