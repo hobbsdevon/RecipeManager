@@ -9,6 +9,7 @@ public class Recipe {
     private ArrayList<Ingredient> ingredients;
     private double totalCalories;
 
+    // Constructors
     public Recipe() {
         this.name = "";
         this.servings = 0;
@@ -16,13 +17,14 @@ public class Recipe {
         this.totalCalories = 0.0;
     }
 
-    public Recipe(String name, short servings, ArrayList<Ingredient> ingredients, double totalCalories) {
+    public Recipe(String name, short servings, ArrayList<Ingredient> ingredients) {
         this.name = name;
         this.servings = servings;
         this.ingredients = ingredients;
-        this.totalCalories = totalCalories;
     }
+    // End Constructors
 
+    // Getters and Setters
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
@@ -38,8 +40,17 @@ public class Recipe {
     public double getTotalCalories() { return totalCalories; }
 
     public void setTotalCalories(double totalCalories) { this.totalCalories = totalCalories; }
+    // End Getters and Setters
 
+    // Print Recipe details
     public void printRecipe() {
+        // Calculate total calories
+        for (Ingredient ingredient : ingredients) {
+            totalCalories += ingredient.getTotalCalories();
+        }
+        totalCalories = totalCalories * servings;
+
+        // Print recipe details
         System.out.println("Recipe Name: " + name);
         System.out.println("Servings: " + servings);
         System.out.println("Ingredients:");
@@ -47,8 +58,10 @@ public class Recipe {
             System.out.println("- " + ingredient.getName() + " (" + ingredient.getAmount() + " " + ingredient.getUnit() + ")");
         }
         System.out.println("Total Calories: " + totalCalories);
-    }
+    }// printRecipe()
 
+    // Add Recipe by taking user input
+    // Returns a Recipe object
     public Recipe addRecipe(Scanner scnr) {
         System.out.print("Enter recipe name: ");
         String name = scnr.nextLine();
@@ -71,7 +84,7 @@ public class Recipe {
                 break;
             }
         }
-        return new Recipe(name, servings, ingredients, 0.0);
-    }
+        return new Recipe(name, servings, ingredients);
+    } // addRecipe()
 
-}
+} // Recipe Class
