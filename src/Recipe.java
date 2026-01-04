@@ -51,10 +51,10 @@ public class Recipe {
         totalCalories = totalCalories * servings;
 
         // Print recipe details
-        System.out.println("Recipe Name: " + name);
+        System.out.println("Recipe Name: " + name); // print attributes of recipe
         System.out.println("Servings: " + servings);
         System.out.println("Ingredients:");
-        for (Ingredient ingredient : ingredients) {
+        for (Ingredient ingredient : ingredients) { // print attributes of each ingredient
             System.out.println("- " + ingredient.getName() + " (" + ingredient.getAmount() + " " + ingredient.getUnit() + ")");
         }
         System.out.println("Total Calories: " + totalCalories);
@@ -80,11 +80,27 @@ public class Recipe {
             char choice = scnr.next().charAt(0);
             scnr.nextLine(); // consume newline character
 
-            if (choice == 'n') {
+            if (choice == 'n') { // quit entering ingredients when user inputs 'n'
                 break;
             }
         }
         return new Recipe(name, servings, ingredients);
     } // addRecipe()
+
+    /* 
+    Adjust recipe amounts for different number of servings
+    In application menu, a user can choose to adjust the number of servings for a recipe
+    This method takes the desired number of servings as input and adjusts the ingredient amounts accordingly
+
+    void adjustServings(int newServings)
+        if newServings > 0
+            for each ingredient in ingredients
+                ingredient.amount = ingredient.amount * (newServings / servings)
+                ingredient.totalCalories = ingredient.totalCalories * (newServings / servings)
+                recipe.totalCalories = recipe.totalCalories * (newServings / servings)
+            recipe.servings = newServings
+        else
+            print "Number of servings must be greater than zero. Please try again."
+    */
 
 } // Recipe Class
