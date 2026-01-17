@@ -1,10 +1,8 @@
-// Import Scanner for user input.
 import java.util.Scanner;
 
 // Ingredient class represents a single ingredient with name, amount, unit, and total calories.
 public class Ingredient {
 
-    // Private fields to store ingredient data.
     private String name;
     private float amount;
     private String unit;
@@ -33,7 +31,6 @@ public class Ingredient {
     // End Constructors
 
     // Getters and Setters
-    // Methods to get and set the private fields.
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
@@ -55,7 +52,6 @@ public class Ingredient {
     // Returns an Ingredient object.
     public static Ingredient addIngredient(Scanner scnr) {
 
-        // Variables to hold input values.
         String name = "";
         float amount = 0.0f;
         String unit = "";

@@ -1,23 +1,17 @@
-// Driver class contains the main method to run the recipe application.
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Driver {
-    // The main method is the entry point of the program.
     public static void main(String[] args) {
-        // Create a Scanner to read user input from the console.
+
         Scanner scnr = new Scanner(System.in);
 
-        // Print a welcome message.
         System.out.println("Welcome to the Recipe Application!");
 
-        // Create a RecipeBox to manage recipes.
         RecipeBox recipeBox = new RecipeBox();
 
-        // Variable to control the main loop.
-        boolean running = true;
-        // Start the main menu loop that runs until the user chooses to exit.
+        boolean running = true;// Control main loop
+
         while (running) {
             // Display the main menu options.
             System.out.println("\nMain Menu:");
@@ -37,12 +31,11 @@ public class Driver {
                 continue;
             }
 
-            // Handle the user's choice with a switch statement.
+            // Handle the user's choice.
             switch (choice) {
                 case 1:
-                    // Call method to add a new recipe.
+                    // Add a new recipe.
                     recipeBox.addNewRecipe(scnr);
-                    // Confirm the recipe was added.
                     System.out.println("Recipe added successfully!");
                     break;
                 case 2:
@@ -65,11 +58,10 @@ public class Driver {
             }
         }
         
-        // Close the scanner to free resources.
         scnr.close();
     }
 
-    // Private method to handle selecting and managing a specific recipe.
+    // Handle selecting and managing a specific recipe.
     private static void handleRecipeSelection(Scanner scnr, RecipeBox recipeBox) {
         // Get the list of recipes from the recipe box.
         ArrayList<Recipe> recipes = recipeBox.getRecipes();
@@ -82,13 +74,13 @@ public class Driver {
         // Display the list of recipes with numbers.
         System.out.println("\nSelect a recipe:");
         for (int i = 0; i < recipes.size(); i++) {
-            // Print each recipe with its index +1 for user-friendly numbering.
+            // Print each recipe.
             System.out.println((i + 1) + ". " + recipes.get(i).getName());
         }
         // Ask for the recipe number.
         System.out.print("Enter the number of the recipe: ");
 
-        // Variable for the selected index.
+        // Variable for the selected recipe index.
         int index = 0;
         try {
             // Parse input, subtract 1 to get array index.

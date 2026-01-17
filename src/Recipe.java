@@ -1,11 +1,9 @@
-// Import statements for ArrayList and Scanner.
 import java.util.ArrayList;
 import java.util.Scanner;
 
 // Recipe class represents a single recipe with name, servings, ingredients, and total calories.
 public class Recipe {
 
-    // Private fields to store recipe data.
     private String name;
     private short servings;
     private ArrayList<Ingredient> ingredients;
@@ -29,7 +27,6 @@ public class Recipe {
     // End Constructors
 
     // Getters and Setters
-    // Methods to get and set the private fields.
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
@@ -57,7 +54,7 @@ public class Recipe {
         totalCalories = totalCalories * servings;
 
         // Print the recipe details.
-        System.out.println("Recipe Name: " + name); // print attributes of recipe
+        System.out.println("Recipe Name: " + name);
         System.out.println("Servings: " + servings);
         System.out.println("Ingredients:");
         for (Ingredient ingredient : ingredients) { // print attributes of each ingredient
@@ -148,7 +145,7 @@ public class Recipe {
         // Handle the choice with a switch.
         switch (editChoice) {
             case 1:
-                // Edit name with validation.
+                // Edit name.
                 String newName = "";
                 do {
                     System.out.print("Enter new name: ");
@@ -161,7 +158,7 @@ public class Recipe {
                 System.out.println("Name updated!");
                 break;
             case 2:
-                // Edit servings with validation.
+                // Edit servings.
                 short newServings = 0;
                 do {
                     System.out.print("Enter new number of servings: ");
@@ -191,7 +188,7 @@ public class Recipe {
         }
     }
 
-    // Private method to edit ingredients in the recipe.
+    // Edit ingredients in the recipe.
     private void editIngredients(Scanner scnr) {
         // Loop for the ingredient editing menu.
         while (true) {
@@ -225,7 +222,7 @@ public class Recipe {
                     System.out.println("Ingredient added!");
                     break;
                 case 2:
-                    // Edit an existing ingredient by index.
+                    // Edit an existing ingredient.
                     System.out.print("Enter ingredient number to edit: ");
                     try {
                         int ingIndex = Integer.parseInt(scnr.nextLine()) - 1;
@@ -241,7 +238,7 @@ public class Recipe {
                     }
                     break;
                 case 3:
-                    // Remove an ingredient by index.
+                    // Remove an ingredient.
                     System.out.print("Enter ingredient number to remove: ");
                     try {
                         int removeIndex = Integer.parseInt(scnr.nextLine()) - 1;
