@@ -90,9 +90,9 @@ public class Ingredient {
                 if (scnr.hasNextFloat()) { // Validate input is a float
                     amount = scnr.nextFloat();
                     scnr.nextLine(); // Consume newline character
-                }
-            }
-        }
+                }// if
+            }// while
+        }// if
 
         // Prompt and validate calories per unit.
         System.out.println("Please enter the calories per " + unit + ": ");
@@ -104,9 +104,9 @@ public class Ingredient {
                 if (scnr.hasNextFloat()) { // Validate input is a float
                     caloriesPerUnit = scnr.nextFloat();
                     scnr.nextLine(); // Consume newline character
-                }
-            }
-        }
+                }// if
+            }// while
+        }// if
 
         // Calculate total calories for the ingredient.
         totalCalories = amount * caloriesPerUnit;
@@ -118,4 +118,4 @@ public class Ingredient {
         return new Ingredient(name, amount, unit, totalCalories);
     } // addIngredient()
 
-} // Ingredient Class
+} // Ingredient

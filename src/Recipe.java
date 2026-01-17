@@ -130,8 +130,9 @@ public class Recipe {
         System.out.println("1. Change name");
         System.out.println("2. Change servings");
         System.out.println("3. Edit ingredients");
-        System.out.println("4. Cancel");
-        System.out.print("Choose what to edit (1-4): ");
+        System.out.println("4. Adjust servings");
+        System.out.println("5. Cancel");
+        System.out.print("Choose what to edit (1-5): ");
 
         // Parse the user's choice.
         int editChoice = 0;
@@ -173,7 +174,7 @@ public class Recipe {
                         }
                     } catch (NumberFormatException e) {
                         System.out.println("Invalid input. Please enter a valid number.");
-                    }
+                    }// try-catch
                 } while (newServings <= 0);
                 break;
             case 3:
@@ -181,12 +182,31 @@ public class Recipe {
                 editIngredients(scnr);
                 break;
             case 4:
+                // Adjust servings.
+                int adjustNewServings = 0;
+                do {
+                    System.out.print("Enter new number of servings: ");
+                    try {
+                        adjustNewServings = Integer.parseInt(scnr.nextLine());
+                        if (adjustNewServings <= 0) {
+                            System.out.println("Number of servings must be greater than 0. Please try again.");
+                            adjustNewServings = 0;
+                        } else {
+                            adjustServings(adjustNewServings);
+                            System.out.println("Servings adjusted!");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please enter a valid number.");
+                    }// try-catch
+                } while (adjustNewServings <= 0);
+                break;
+            case 5:
                 break;
             default:
                 System.out.println("Invalid choice.");
                 break;
-        }
-    }
+        }// switch
+    }// editRecipe()
 
     // Edit ingredients in the recipe.
     private void editIngredients(Scanner scnr) {
@@ -257,24 +277,23 @@ public class Recipe {
                 default:
                     System.out.println("Invalid choice.");
                     break;
+            }// switch
+        }// while (true)
+    } // editIngredients()
+
+    // Adjust recipe amounts for different number of servings
+    public void adjustServings(int newServings) {
+        if (newServings > 0) {
+            double ratio = (double) newServings / servings;
+            for (Ingredient ingredient : ingredients) {
+                ingredient.setAmount(ingredient.getAmount() * (float) ratio);
+                ingredient.setTotalCalories(ingredient.getTotalCalories() * ratio);
             }
+            totalCalories = totalCalories * ratio;
+            servings = (short) newServings;
+        } else {
+            System.out.println("Number of servings must be greater than zero. Please try again.");
         }
-    }
+    } // adjustServings()
 
-    /*
-    Adjust recipe amounts for different number of servings
-    In application menu, a user can choose to adjust the number of servings for a recipe
-    This method takes the desired number of servings as input and adjusts the ingredient amounts accordingly
-
-    void adjustServings(int newServings)
-        if newServings > 0
-            for each ingredient in ingredients
-                ingredient.amount = ingredient.amount * (newServings / servings)
-                ingredient.totalCalories = ingredient.totalCalories * (newServings / servings)
-                recipe.totalCalories = recipe.totalCalories * (newServings / servings)
-            recipe.servings = newServings
-        else
-            print "Number of servings must be greater than zero. Please try again."
-    */
-
-} // Recipe Class
+} // Recipe

@@ -29,7 +29,7 @@ public class Driver {
                 // If input is not a number, inform the user and continue the loop.
                 System.out.println("Invalid input. Please enter a number.");
                 continue;
-            }
+            }// try-catch
 
             // Handle the user's choice.
             switch (choice) {
@@ -55,11 +55,11 @@ public class Driver {
                     // Invalid choice.
                     System.out.println("Invalid option. Please choose 1-4.");
                     break;
-            }
-        }
+            }// switch
+        }// while (running)
         
         scnr.close();
-    }
+    }// main()
 
     // Handle selecting and managing a specific recipe.
     private static void handleRecipeSelection(Scanner scnr, RecipeBox recipeBox) {
@@ -93,7 +93,7 @@ public class Driver {
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Please enter a number.");
             return;
-        }
+        }// try-catch
 
         // Submenu loop for the selected recipe.
         boolean subRunning = true;
@@ -137,7 +137,7 @@ public class Driver {
                 default:
                     System.out.println("Invalid option. Please choose 1-4.");
                     break;
-            }
-        }
-    }
-}
+            }// switch
+        }// while (subRunning)
+    }// handleRecipeSelection()
+}// Driver
