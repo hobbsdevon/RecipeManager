@@ -1,7 +1,15 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * This class serves as the main driver for the Recipe Application.
+ * It provides a console-based menu interface for users to create, view, edit, and delete recipes.
+ */
 public class Driver {
+    /**
+     * The main method that runs the Recipe Application, providing a console-based menu interface.
+     * @param args command line arguments (not used in this application)
+     */
     public static void main(String[] args) {
 
         Scanner scnr = new Scanner(System.in);
@@ -61,7 +69,12 @@ public class Driver {
         scnr.close();
     }// main()
 
-    // Handle selecting and managing a specific recipe.
+    /**
+     * Handles the selection and management of a specific recipe for viewing, editing, or deleting.
+     * Displays a list of recipes, allows the user to select one, and provides a submenu for actions.
+     * @param scnr the Scanner object for reading user input
+     * @param recipeBox the RecipeBox containing all recipes
+     */
     private static void handleRecipeSelection(Scanner scnr, RecipeBox recipeBox) {
         // Get the list of recipes from the recipe box.
         ArrayList<Recipe> recipes = recipeBox.getRecipes();

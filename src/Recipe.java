@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Recipe class represents a single recipe with name, servings, ingredients, and total calories.
+/**
+ * Represents a single recipe, including name, number of servings, list of ingredients, and total calories.
+ */
 public class Recipe {
 
     private String name;
@@ -10,7 +12,9 @@ public class Recipe {
     private double totalCalories;
 
     // Constructors
-    // Default constructor initializes an empty recipe.
+    /**
+     * Default constructor that initializes an empty recipe with default values.
+     */
     public Recipe() {
         this.name = "";
         this.servings = 0;
@@ -18,7 +22,12 @@ public class Recipe {
         this.totalCalories = 0.0;
     }
 
-    // Constructor with parameters to create a recipe with given values.
+    /**
+     * Constructor with parameters to create a recipe with specified values.
+     * @param name the name of the recipe
+     * @param servings the number of servings
+     * @param ingredients the list of ingredients
+     */
     public Recipe(String name, short servings, ArrayList<Ingredient> ingredients) {
         this.name = name;
         this.servings = servings;
@@ -27,24 +36,59 @@ public class Recipe {
     // End Constructors
 
     // Getters and Setters
+    /**
+     * Gets the name of the recipe.
+     * @return the name
+     */
     public String getName() { return name; }
 
+    /**
+     * Sets the name of the recipe.
+     * @param name the name to set
+     */
     public void setName(String name) { this.name = name; }
 
+    /**
+     * Gets the number of servings for the recipe.
+     * @return the servings
+     */
     public short getServings() { return servings; }
 
+    /**
+     * Sets the number of servings for the recipe.
+     * @param servings the servings to set
+     */
     public void setServings(short servings) { this.servings = servings; }
 
+    /**
+     * Gets the list of ingredients for the recipe.
+     * @return the ingredients
+     */
     public ArrayList<Ingredient> getIngredients() { return ingredients; }
 
+    /**
+     * Sets the list of ingredients for the recipe.
+     * @param ingredients the ingredients to set
+     */
     public void setIngredients(ArrayList<Ingredient> ingredients) { this.ingredients = ingredients; }
 
+    /**
+     * Gets the total calories for the recipe.
+     * @return the total calories
+     */
     public double getTotalCalories() { return totalCalories; }
 
+    /**
+     * Sets the total calories for the recipe.
+     * @param totalCalories the total calories to set
+     */
     public void setTotalCalories(double totalCalories) { this.totalCalories = totalCalories; }
     // End Getters and Setters
 
-    // Method to print the recipe details, including calculating total calories.
+    /**
+     * Prints the details of the recipe, including name, servings, ingredients, and total calories.
+     * Calculates the total calories by summing the calories from all ingredients multiplied by servings.
+     */
     public void printRecipe() {
         // Loop through ingredients to sum up their calories.
         for (Ingredient ingredient : ingredients) {
@@ -63,8 +107,12 @@ public class Recipe {
         System.out.println("Total Calories: " + totalCalories);
     }// printRecipe()
 
-    // Method to create a new recipe by prompting the user for input.
-    // Returns a Recipe object.
+    /**
+     * Creates a new recipe by prompting the user for input via the console.
+     * Collects name, servings, and ingredients with validation.
+     * @param scnr the Scanner object for reading user input
+     * @return a new Recipe object with the user-provided details
+     */
     public Recipe addRecipe(Scanner scnr) {
         // Input validation loop for recipe name.
         String name = "";
@@ -124,7 +172,10 @@ public class Recipe {
         return new Recipe(name, servings, ingredients);
     } // addRecipe()
 
-    // Method to edit the recipe using a menu.
+    /**
+     * Provides a menu-driven interface to edit the recipe, allowing changes to name, servings, ingredients, etc.
+     * @param scnr the Scanner object for reading user input
+     */
     public void editRecipe(Scanner scnr) {
         System.out.println("Editing recipe: " + name);
         System.out.println("1. Change name");
@@ -208,7 +259,11 @@ public class Recipe {
         }// switch
     }// editRecipe()
 
-    // Edit ingredients in the recipe.
+    /**
+     * Provides a submenu for editing the ingredients in the recipe.
+     * Allows adding, editing, or removing ingredients.
+     * @param scnr the Scanner object for reading user input
+     */
     private void editIngredients(Scanner scnr) {
         // Loop for the ingredient editing menu.
         while (true) {
@@ -281,7 +336,11 @@ public class Recipe {
         }// while (true)
     } // editIngredients()
 
-    // Adjust recipe amounts for different number of servings
+    /**
+     * Adjusts the ingredient amounts and total calories based on a new number of servings.
+     * Scales all ingredient amounts and calories proportionally.
+     * @param newServings the new number of servings
+     */
     public void adjustServings(int newServings) {
         if (newServings > 0) {
             double ratio = (double) newServings / servings;

@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-// Ingredient class represents a single ingredient with name, amount, unit, and total calories.
+/**
+ * Represents a single ingredient in a recipe, including name, amount, unit of measurement, and total calories.
+ */
 public class Ingredient {
 
     private String name;
@@ -9,7 +11,9 @@ public class Ingredient {
     private double totalCalories;
 
     // Constructors
-    // Default constructor initializes an empty ingredient.
+    /**
+     * Default constructor that initializes an empty ingredient with default values.
+     */
     public Ingredient() {
         this.name = "";
         this.amount = 0.0f;
@@ -17,7 +21,14 @@ public class Ingredient {
         this.totalCalories = 0.0f;
     }
 
-    // Constructor with parameters, includes validation for non-negative calories.
+    /**
+     * Constructor with parameters to create an ingredient with specified values.
+     * Includes validation to ensure total calories are non-negative.
+     * @param name the name of the ingredient
+     * @param amount the quantity of the ingredient
+     * @param unit the unit of measurement for the amount
+     * @param totalCalories the total calories for the ingredient
+     */
     public Ingredient(String name, float amount, String unit, float totalCalories) {
         this.name = name;
         this.amount = amount;
@@ -31,21 +42,59 @@ public class Ingredient {
     // End Constructors
 
     // Getters and Setters
+    /**
+     * Gets the name of the ingredient.
+     * @return the name
+     */
     public String getName() { return name; }
 
+    /**
+     * Sets the name of the ingredient.
+     * @param name the name to set
+     */
     public void setName(String name) { this.name = name; }
 
+    /**
+     * Gets the amount of the ingredient.
+     * @return the amount
+     */
     public float getAmount() { return amount; }
 
+    /**
+     * Sets the amount of the ingredient.
+     * @param amount the amount to set
+     */
     public void setAmount(float amount) { this.amount = amount; }
 
+    /**
+     * Gets the unit of measurement for the ingredient.
+     * @return the unit
+     */
     public String getUnit() { return unit; }
 
+    /**
+     * Sets the unit of measurement for the ingredient.
+     * @param unit the unit to set
+     */
     public void setUnit(String unit) { this.unit = unit; }
 
+    /**
+     * Gets the total calories for the ingredient.
+     * @return the total calories
+     */
     public double getTotalCalories() { return totalCalories; }
 
+    /**
+     * Sets the total calories for the ingredient.
+     * @param totalCalories the total calories to set
+     */
     public void setTotalCalories(double totalCalories) { this.totalCalories = totalCalories; }
+    /**
+     * Static method to create a new ingredient by prompting the user for input via the console.
+     * Validates user inputs for name, unit, amount, and calories.
+     * @param scnr the Scanner object for reading user input
+     * @return a new Ingredient object with the user-provided values
+     */
     // End Getters and Setters
 
     // Static method to create an ingredient by taking user input.
